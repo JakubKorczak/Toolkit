@@ -1,31 +1,170 @@
 "use strict";
-angular.module('toolkit', [ ])
+angular.module('toolkit', ['ui.bootstrap', 'ngAnimate'])
   .controller('MainCtrl', MainCtrl)
-  .controller('SubCtrl', SubCtrl)
-  .directive('customDirective', customDirective)
-  .factory('someService', someService);
+  .factory('mainService', mainService);
 
-function someService($http){
+function mainService(){
   return {
-    hello: function(msg){
-      console.log('someService yells: ' + msg);
+    data: function() {
+      return [
+          {
+              "category": "aliqua",
+              "link": [
+                  {
+                      "name": "adipisicing"
+                  },
+                  {
+                      "name": "sit"
+                  },
+                  {
+                      "name": "ad"
+                  },
+                  {
+                      "name": "qui"
+                  },
+                  {
+                      "name": "consectetur"
+                  }
+              ]
+          },
+          {
+              "category": "voluptate",
+              "link": [
+                  {
+                      "name": "adipisicing"
+                  },
+                  {
+                      "name": "sunt"
+                  },
+                  {
+                      "name": "do"
+                  },
+                  {
+                      "name": "ut"
+                  },
+                  {
+                      "name": "id"
+                  },
+                  {
+                      "name": "non"
+                  },
+                  {
+                      "name": "exercitation"
+                  },
+                  {
+                      "name": "occaecat"
+                  }
+              ]
+          },
+          {
+              "category": "nisi",
+              "link": [
+                  {
+                      "name": "non"
+                  },
+                  {
+                      "name": "do"
+                  },
+                  {
+                      "name": "veniam"
+                  },
+                  {
+                      "name": "tempor"
+                  },
+                  {
+                      "name": "cupidatat"
+                  },
+                  {
+                      "name": "Lorem"
+                  }
+              ]
+          },
+          {
+              "category": "elit",
+              "link": [
+                  {
+                      "name": "excepteur"
+                  },
+                  {
+                      "name": "non"
+                  },
+                  {
+                      "name": "enim"
+                  },
+                  {
+                      "name": "mollit"
+                  },
+                  {
+                      "name": "culpa"
+                  },
+                  {
+                      "name": "exercitation"
+                  },
+                  {
+                      "name": "voluptate"
+                  }
+              ]
+          },
+          {
+              "category": "tempor",
+              "link": [
+                  {
+                      "name": "culpa"
+                  },
+                  {
+                      "name": "sunt"
+                  },
+                  {
+                      "name": "proident"
+                  },
+                  {
+                      "name": "non"
+                  },
+                  {
+                      "name": "pariatur"
+                  },
+                  {
+                      "name": "veniam"
+                  },
+                  {
+                      "name": "qui"
+                  }
+              ]
+          },
+          {
+              "category": "consequat",
+              "link": [
+                  {
+                      "name": "do"
+                  },
+                  {
+                      "name": "veniam"
+                  },
+                  {
+                      "name": "ut"
+                  },
+                  {
+                      "name": "sit"
+                  },
+                  {
+                      "name": "anim"
+                  },
+                  {
+                      "name": "ex"
+                  },
+                  {
+                      "name": "laboris"
+                  },
+                  {
+                      "name": "sit"
+                  }
+              ]
+          }
+      ]
     }
   }
 };
 
-function customDirective(){
-  return{
-    restrict: 'EAC',
-    template: '<p>And this is the Magic Directive!</p>'
-  }
-};
-
-function MainCtrl($scope, someService){
-  console.clear();
-  $scope.name = 'Main';
-  someService.hello('hello world!!');
-};
-
-function SubCtrl($scope){
-  $scope.name = 'Sub';
+function MainCtrl($scope, mainService) {
+    $scope.data = mainService.data();
 };
